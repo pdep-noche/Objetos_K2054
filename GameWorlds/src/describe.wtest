@@ -1,0 +1,24 @@
+import example.*
+describe  "Test Jugadores" {
+	
+	const rekkles = new Jugador(antiguedad = 9, cantCompetenciasJugadas = 14)
+	const Josedeodo = new Jugador(antiguedad = 4, cantCompetenciasJugadas = 1)
+	
+	test "jugador es titular" {
+		assert.that(rekkles.esTitular())
+
+	}
+	
+	test "jugador tiene experiencia" {
+		assert.that(rekkles.tieneExperiencia())
+	}
+	
+	test " jugador puede jugar" {
+		assert.that(rekkles.puedeJugar())
+	}
+	
+	test "jugador jugar" {
+		rekkles.jugar()
+		assert.equals(20, rekkles.cansancio())
+	}
+}

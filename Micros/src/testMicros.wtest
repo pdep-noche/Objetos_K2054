@@ -1,0 +1,30 @@
+import micros.*
+describe "Tests de Micros" {
+	
+	const unMicro = new Micro(cantSentados = 2, cantParados = 1, volumen = 100)
+	const pedro = new Fiaca()
+	const ana = new Apurado()
+	const juan = new Claustrofobico()
+	const julia = new Moderado(cantLugaresLibres = 3)
+
+	test "test subir a juan y que falle" {
+
+		assert.throwsException({unMicro.subirA(juan)})
+	
+	}
+	
+	test "test subir a ana y subir a julia " {
+		unMicro.subirA(ana)
+		assert.throwsExceptionWithType(new DomainException(), {unMicro.subirA(julia)})
+	}
+	
+	test " eliminar a ana que no esta en el micro" {
+		assert.throwsException({unMicro.bajarA(ana)})
+	}
+	
+	test "subir a pedro, a ana y a julia" {
+		unMicro.subirA(pedro)
+		unMicro.subirA(ana)
+        assert.throwsException({unMicro.subirA(julia)})	
+	}
+}

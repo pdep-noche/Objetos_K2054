@@ -1,0 +1,30 @@
+
+import segVial.*
+
+describe "group of tests" {
+	
+	const fitito = new Auto(plusVelocidad = 30, tieneRuedaAux = true)
+	const pedro =  new Conductor(tieneRegistro = true, vehiculo = fitito)
+	const onda = new Moto(velocidad = 130, canEspejosRetro=2)
+
+	test "pedro es seguro con fitito" {		
+		assert.that(pedro.esSeguro())
+
+	}
+	
+	
+	test "pedro es seguro con moto" {
+		pedro.vehiculo(onda)
+		assert.that(pedro.esSeguro())		
+	}
+	
+	test "auto es seguro" {
+		assert.that(fitito.esSeguro())
+	}
+	
+	test "modo es segura" {
+		assert.that(onda.esSeguro())
+	}
+	
+}
+
